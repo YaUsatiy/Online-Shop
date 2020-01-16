@@ -18,16 +18,16 @@ public class CategoryDaoImpl implements CategoryDao {
 	private SessionFactory sessionFactory;
 	
 	@Override
+	public Category get(int id) {
+		return sessionFactory.getCurrentSession().get(Category.class, id);
+	}
+	
+	@Override
 	public List<Category> list() {
 		String selectActiveCategory = "FROM Category WHERE active = :active";
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 		query.setParameter("active", true);
 		return query.getResultList();
-	}
-
-	@Override
-	public Category get(int id) {
-		return sessionFactory.getCurrentSession().get(Category.class, id);
 	}
 
 	@Override

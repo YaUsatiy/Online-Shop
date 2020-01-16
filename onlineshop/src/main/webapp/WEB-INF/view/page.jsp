@@ -24,6 +24,7 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}'
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -31,8 +32,12 @@
 
 <link href="${css}/bootstrap-theme.css" rel="stylesheet">
 
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -57,6 +62,9 @@
 			<c:if test="${userClickAllProducts or userClickCategoryProducts eq true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			<c:if test="${userClickShowProduct eq true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Footer -->
@@ -65,6 +73,10 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${jquery}/jquery.min.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
+		
+		<script src="${js}/datatables.js"></script>
+		
+		<script src="${js}/dataTables.bootstrap4.js"></script>
 
 		<!-- My JavaScript -->
 		<script src="${js}/myapp.js"></script>

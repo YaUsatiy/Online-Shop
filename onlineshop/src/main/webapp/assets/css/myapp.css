@@ -233,3 +233,8 @@ input:checked + .slider:before {
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
 }
 
+.dataTableImg {
+	width: 100px;
+	height: 100px;
+}
+

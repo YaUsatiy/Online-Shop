@@ -11,8 +11,7 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd
     ">
     
-    <context:component-scan base-package="by.web.shop.shopbackend"/>
-    <context:component-scan base-package="by.web.shop.controller"/>
+    <context:component-scan base-package="by.web.shop"/>
         
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     	<property name="prefix" value="/WEB-INF/view/"/>

@@ -37,7 +37,7 @@
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="${css}/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -65,6 +65,9 @@
 			<c:if test="${userClickShowProduct eq true}">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
+			<c:if test="${userClickManageProducts eq true}">
+				<%@include file="manageProducts.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Footer -->
@@ -77,6 +80,8 @@
 		<script src="${js}/datatables.js"></script>
 		
 		<script src="${js}/dataTables.bootstrap4.js"></script>
+		
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- My JavaScript -->
 		<script src="${js}/myapp.js"></script>

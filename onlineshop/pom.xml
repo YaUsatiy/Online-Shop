@@ -19,7 +19,6 @@
 			<groupId>by.web.shop</groupId>
 			<artifactId>shopbackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<!--<systemPath>${basedir}/../shopbackend/</systemPath>-->
 		</dependency>
 	
 		<dependency>

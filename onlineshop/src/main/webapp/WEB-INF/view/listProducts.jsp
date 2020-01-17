@@ -10,7 +10,7 @@
 						<script>
 							window.categoryId = '';
 						</script>
-						<ol class="breadcrumb">
+						<ol class="mt-3 breadcrumb">
 							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
 							<li class="breadcrumb-item active">All products</li>
 						</ol>
@@ -19,7 +19,7 @@
 					<script>
 							window.categoryId = '${category.id}';
 						</script>
-						<ol class="breadcrumb">
+						<ol class="mt-3 breadcrumb">
 							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
 							<li class="breadcrumb-item active">Category</li>
 							<li class="breadcrumb-item active">${category.name}</li>

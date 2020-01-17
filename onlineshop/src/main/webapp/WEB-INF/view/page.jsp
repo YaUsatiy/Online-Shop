@@ -75,6 +75,9 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${jquery}/jquery.min.js"></script>
+		
+		<script src="${jquery}/jquery.validate.js"></script>
+		
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 		
 		<script src="${js}/datatables.js"></script>

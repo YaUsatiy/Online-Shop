@@ -70,12 +70,12 @@ $(function() {
 							data: 'id',
 							bSortable: false,
 							mRender: function(data, type, row) {
-								var str = '';
-								str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-info"><i class="fas fa-eye"></i></a>&#160';
+								var str = '<div class="row">';
+								str += '<div class="col-5"><a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-info"><i class="fas fa-eye"></i></a></div>&#160';
 								if (row.quantity < 1) {
-									str += '<a href="javascript:void(0)" class="btn btn-success disabled"><i class="fas fa-cart-plus"></i></a>';
+									str += '<div class="col-5"><a href="javascript:void(0)" class="btn btn-success disabled"><i class="fas fa-cart-plus"></i></a></div>';
 								} else {
-									str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><i class="fas fa-cart-plus"></i></a>';
+									str += '<div class="col-5"><a href="' + window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><i class="fas fa-cart-plus"></i></a></div></div>';
 								}
 								return str;
 							}
@@ -88,7 +88,7 @@ $(function() {
 		if($alert.length) {
 			setTimeout(function() {
 		    	$alert.fadeOut('slow');
-			   }, 3000);		
+			   }, 5000);		
 		}
 	//---------------------------------
 		
@@ -139,7 +139,7 @@ $(function() {
 									{
 										data : 'unitPrice',
 										mRender : function(data, type, row) {
-											return '&#8377; ' + data
+											return '&#36; ' + data
 										}
 									},
 									{
@@ -168,7 +168,6 @@ $(function() {
 													+ '/manage/'
 													+ data
 													+ '/product" class="btn btn-success"><i class="fas fa-edit"></i></a> &#160;';
-
 											return str;
 										}
 									}					           	
@@ -209,5 +208,59 @@ $(function() {
 								
 						}
 					});
+		}
+		
+		// jQuery Validation Code		
+		function errorPlacement(error, element) {
+			// Add the 'help-block' class to the error element
+			error.addClass("help-block");
+			
+			// add the error label after the input element
+			error.insertAfter(element);
+			
+			
+			// add the has-feedback class to the
+			// parent div.validate in order to add icons to inputs
+			element.parents(".validate").addClass("has-feedback");	
+
+		}	
+		
+		
+		
+		// validating the product form element	
+		// fetch the form element
+		$categoryForm = $('#categoryForm');
+		
+		if($categoryForm.length) {
+			
+			$categoryForm.validate({			
+					rules: {
+						name: {
+							required: true,
+							minlength: 3
+						},
+						description: {
+							required: true,
+							minlength: 5					
+						}				
+					},
+					messages: {					
+						name: {
+							required: 'Please enter product name!',
+							minlength: 'Please enter at least three characters'
+						},
+						description: {
+							required: 'Please enter product name!',
+							minlength: 'Please enter at least five characters'
+						}					
+					},
+					errorElement : "em",
+					errorPlacement : function(error, element) {
+						errorPlacement(error, element);
+					}				
+				}
+			
+			);
+			
 		}
 })

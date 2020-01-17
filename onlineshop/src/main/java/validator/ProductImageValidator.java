@@ -5,7 +5,7 @@ import org.springframework.validation.Validator;
 
 import by.web.shop.shopbackend.dto.Product;
 
-public class ProductValidator implements Validator {
+public class ProductImageValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {

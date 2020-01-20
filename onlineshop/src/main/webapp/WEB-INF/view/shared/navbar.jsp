@@ -19,13 +19,13 @@
             <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-			 <li id="register">
-			     <a href="${contextRoot}/register">Sign Up</a>
-			</li>
-			<li id="login">
-            	<a href="${contextRoot}/login">Login</a>
+        <ul class="navbar-nav ml-auto">
+			<li class="nav-item" id="login">
+            	<a class="nav-link" href="${contextRoot}/login">Log in</a>
 			</li> 	
+			<li class="nav-item" id="register">
+			     <a class="nav-link" href="${contextRoot}/register">Sign Up</a>
+			</li>
       	</ul>
       </div>
     </div>

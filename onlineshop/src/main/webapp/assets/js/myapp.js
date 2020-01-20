@@ -210,7 +210,7 @@ $(function() {
 					});
 		}
 		
-		// jQuery Validation Code		
+		// jQuery Validation Code for category
 		function errorPlacement(error, element) {
 			// Add the 'help-block' class to the error element
 			error.addClass("help-block");
@@ -258,6 +258,42 @@ $(function() {
 					errorPlacement : function(error, element) {
 						errorPlacement(error, element);
 					}				
+				}
+			
+			);
+			
+		}
+		
+		//validating login form
+		$loginForm = $('#loginForm');
+		
+		if($loginForm.length) {
+			
+			$loginForm.validate({			
+					rules: {
+						username: {
+							required: true,
+							email: true
+						},
+						password: {
+							required: true,
+							minlength: 3					
+						}				
+					},
+					messages: {					
+						username: {
+							required: 'Please enter the username!',
+							email: 'Please enter valid email addresss!'
+						},
+						password: {
+							required: 'Please enter the password!',
+							minlength: 'Please enter at least three characters here'
+						}					
+					},
+					errorElement : "em",
+					errorPlacement : function(error, element) {
+						errorPlacement(error, element);
+					}						
 				}
 			
 			);

@@ -3,6 +3,7 @@ package by.web.shop.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import by.web.shop.model.RegisterModel;
@@ -15,6 +16,8 @@ import by.web.shop.shopbackend.dto.User;
 public class RegisterHandler {
 	@Autowired
 	UserDao userDao;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	private final String TRANSITIONAL_SUCCESS_VALUE = "success";
 	private final String TRANSITIONAL_FAILURE_VALUE = "failure";
 	private final String ERROR_MESSAGE_PASSWORD = "Password does not match confirm password!";
@@ -39,6 +42,7 @@ public class RegisterHandler {
 			cart.setUser(user);
 			user.setCart(cart);
 		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userDao.addUser(user);
 		Address billing = model.getBilling();
 		billing.setUserId(user.getId());

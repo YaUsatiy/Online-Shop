@@ -44,7 +44,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="my-2 jumbotron">
+						<div class="my-4 jumbotron">
 							<h1>${errorTitle}</h1>
 							<hr />
 							<blockquote style="word-wrap: break-word">

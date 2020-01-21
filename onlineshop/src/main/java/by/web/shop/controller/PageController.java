@@ -1,6 +1,12 @@
 package by.web.shop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,10 +90,14 @@ public class PageController {
 	}	
 	
 	@RequestMapping(value = {"/login"})
-	public ModelAndView login(@RequestParam(name="error", required = false)String error) {
+	public ModelAndView login(@RequestParam(name="error", required = false)String error, 
+			@RequestParam(name="logout", required = false)String logout) {
 		ModelAndView mv = new ModelAndView("login");
 		if (error != null) {
 			mv.addObject("message", "Invalid username or password!");
+		}
+		if (logout != null) {
+			mv.addObject("message", "User has successfully logged out!");
 		}
 		mv.addObject("title", "Login");
 		return mv;
@@ -101,6 +111,15 @@ public class PageController {
 		mv.addObject("title", "403 Access Denied");		
 		return mv;
 	}	
+	
+	@RequestMapping(value = "/perform-logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null) {
+			new SecurityContextLogoutHandler().logout(request, response, authentication);
+		}
+		return "redirect:/login?logout";
+	}
 }
 
 

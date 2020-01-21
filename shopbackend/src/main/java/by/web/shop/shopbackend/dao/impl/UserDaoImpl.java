@@ -13,7 +13,7 @@ import by.web.shop.shopbackend.dto.User;
 
 @Repository("userDao")
 @Transactional
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao {	
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -30,8 +30,7 @@ public class UserDaoImpl implements UserDao {
 		}
 		catch(Exception ex) {
 			return null;
-		}
-							
+		}		
 	}
 
 	@Override

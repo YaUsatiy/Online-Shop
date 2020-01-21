@@ -102,6 +102,11 @@
 
 
 					</div>
+					<div class="card-footer">
+						<div class="text-right">
+							Already have an account? <a href="${contextRoot}/login">Login Here</a>
+						</div>
+					</div>
 
 
 				</div>

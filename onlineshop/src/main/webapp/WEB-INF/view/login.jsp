@@ -121,7 +121,7 @@
 							</div>
 							<div class="card-footer">
 								<div class="text-right">
-									New User - <a href="${contextRoot}/register">Register Here</a>
+									New User? <a href="${contextRoot}/register">Register Here</a>
 								</div>
 							</div>
 

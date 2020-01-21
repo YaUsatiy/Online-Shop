@@ -146,20 +146,22 @@
 	
 	<div class="row">
 		<div class='col-12'>
-			<table id="adminProductsTable" class="table table-striped table-bordered">	
-				<thead>					
-					<tr>					
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>				
-						<th>Edit</th>
-					</tr>					
-				</thead>			
-			</table>
+			<div class="table-responsive-xl">
+				<table id="adminProductsTable" class="table table-striped table-bordered">	
+					<thead>					
+						<tr>					
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>Qty. Avail</th>
+							<th>Unit Price</th>
+							<th>Activate</th>				
+							<th>Edit</th>
+						</tr>					
+					</thead>			
+				</table>
+			</div>
 		</div>
 	</div>
 	

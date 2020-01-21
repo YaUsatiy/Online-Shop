@@ -73,7 +73,6 @@ footer {
 	position:absolute;
 	bottom:20px;
 	height: 60px;
-	
 }
 
 
@@ -214,6 +213,9 @@ input:checked + .slider:before {
     border-top: 2px solid;
 }
 
+.table-responsive {
+	overflow-x: inherit;
+}
 
 /* landing css */
 

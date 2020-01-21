@@ -19,15 +19,13 @@
 			</div>
 		</div>
 
-
-
 		<div class="col-xs-12 col-sm-8">
 			<h3>${product.name}</h3>
 			<hr />
 			<p>${product.description}</p>
 			<hr />
 			<h4>
-				Price: <strong> &#36; ${product.unitPrice} /-</strong>
+				Price: <strong> &#36; ${product.unitPrice}</strong>
 			</h4>
 			<hr />
 
@@ -59,6 +57,9 @@
 				</c:choose>
 				<a href="${contextRoot}/show/all/products" class="btn btn-warning">Continue
 				Shopping</a>
+				
+				<a href="${contextRoot}/cart/show" class="btn btn-info"> Shopping
+				Cart</a>
 			</security:authorize>
 			
 			<security:authorize access="hasAuthority('ADMIN')">

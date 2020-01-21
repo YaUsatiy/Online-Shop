@@ -50,6 +50,7 @@ body {
 footer {
     margin: 0;
     text-align: center;
+    
 }
 
 
@@ -77,10 +78,8 @@ footer {
 
 
 .dataTableImg {
-	
 	width:100px;
 	height: 100px;
-	
 }
 
 .has-success {
@@ -183,13 +182,10 @@ input:checked + .slider:before {
 		display: inline-block; width: 8rem;
 	}
 	
-	
-	
 	table#cart tfoot td{display:block; }
 	table#cart tfoot td .btn{display:block;}
 	
 }
-
 
 /* cart checkout */
 .panel-title {display: inline;font-weight: bold;}
@@ -217,6 +213,15 @@ input:checked + .slider:before {
 	overflow-x: inherit;
 }
 
+.cartImg {
+	width: 100px;
+	height: 100px;
+}
+
+.unavailable {
+	color: red;
+}
+
 /* landing css */
 
 .landingImg {
@@ -233,11 +238,6 @@ input:checked + .slider:before {
 		height:100%;
 		z-index:9999;
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
-}
-
-.dataTableImg {
-	width: 100px;
-	height: 100px;
 }
 
 .adminDataTableImg {

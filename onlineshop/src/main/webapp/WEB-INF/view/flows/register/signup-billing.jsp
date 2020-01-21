@@ -24,7 +24,7 @@
 						
 							
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="addressLineOne">Address Line One</label>
+								<label class="col-form-label col-md-4" for="addressLineOne">Address Line One</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="addressLineOne" class="form-control"
 										placeholder="Enter Address Line One" />
@@ -33,7 +33,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="addressLineTwo">Address Line Two</label>
+								<label class="col-form-label col-md-4" for="addressLineTwo">Address Line Two</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="addressLineTwo" class="form-control"
 										placeholder="Enter Address Line Two" />
@@ -42,7 +42,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="city">City</label>
+								<label class="col-form-label col-md-4" for="city">City</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="city" class="form-control"
 										placeholder="Enter City Name" />
@@ -51,7 +51,7 @@
 							</div>
 							
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="postalCode">Postal Code</label>
+								<label class="col-form-label col-md-4" for="postalCode">Postal Code</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="postalCode" class="form-control"
 										placeholder="XXXXXX" />
@@ -60,7 +60,7 @@
 							</div>							
 						
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="state">State</label>
+								<label class="col-form-label col-md-4" for="state">State</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="state" class="form-control"
 										placeholder="Enter State Name" />
@@ -69,7 +69,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4" for="country">Country</label>
+								<label class="col-form-label col-md-4" for="country">Country</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="country" class="form-control"
 										placeholder="Enter Country Name" />

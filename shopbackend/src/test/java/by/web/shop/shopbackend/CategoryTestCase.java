@@ -24,39 +24,39 @@ public class CategoryTestCase {
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
 
-//	@Test
-//	public void testAddCategory() {
-//		category = new Category();
-//		category.setName("Laptop");
-//		category.setDescription("This is some description for laptop!");
-//		category.setImageURL("CAT_105.png");
-//		assertEquals(true, categoryDao.add(category));
-//	}
+	@Test
+	public void testAddCategory() {
+		category = new Category();
+		category.setName("Laptop");
+		category.setDescription("This is some description for laptop!");
+		category.setImageURL("CAT_105.png");
+		assertEquals(true, categoryDao.add(category));
+	}
 
-//	@Test
-//	public void testGetCategory() {
-//		category = categoryDao.get(1);
-//		assertEquals("Laptop", category.getName());
-//	}
+	@Test
+	public void testGetCategory() {
+		category = categoryDao.get(1);
+		assertEquals("Laptop", category.getName());
+	}
 
-//	@Test
-//	public void testUpdateCategory() {
-//		category = categoryDao.get(1);
-//		category.setName("NewName2");
-//		assertEquals(true, categoryDao.update(category));
-//	}
+	@Test
+	public void testUpdateCategory() {
+		category = categoryDao.get(1);
+		category.setName("NewName2");
+		assertEquals(true, categoryDao.update(category));
+	}
 
-//	@Test
-//	public void testDeleteCategory() {
-//		category = categoryDao.get(2);
-//		assertEquals(true, categoryDao.delete(category));
-//	}
+	@Test
+	public void testDeleteCategory() {
+		category = categoryDao.get(2);
+		assertEquals(true, categoryDao.delete(category));
+	}
 
-//	@Test
-//	public void testListCategory() {
-//		List<Category> categories = categoryDao.list();
-//		assertEquals(1, categories.size());
-//	}
+	@Test
+	public void testListCategory() {
+		List<Category> categories = categoryDao.list();
+		assertEquals(1, categories.size());
+	}
 
 	@Test
 	public void createCRUDCategory() {

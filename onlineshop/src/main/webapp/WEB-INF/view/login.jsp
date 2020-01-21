@@ -94,7 +94,7 @@
 								<form action="${contextRoot}/login" method="POST"
 									class="form" id="loginForm">
 									<div class="form-row mb-3">
-										<label for="username" class="col-md-4 control-label">Email:
+										<label for="username" class="col-md-4 col-form-label">Email:
 										</label>
 										<div class="col-md-8">
 											<input type="text" name="username" id="username"
@@ -102,7 +102,7 @@
 										</div>
 									</div>
 									<div class="form-row mb-3">
-										<label for="password" class="col-md-4 control-label">Password:
+										<label for="password" class="col-md-4 col-form-label">Password:
 										</label>
 										<div class="col-md-8">
 											<input type="password" name="password" id="password"

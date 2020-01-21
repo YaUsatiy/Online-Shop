@@ -23,7 +23,7 @@
 				<div class="card-body">
 					<sf:form class="form" modelAttribute="product" action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Name</label>
+							<label class="col-form-label col-4">Name</label>
 							<div class="col-8">
 								<sf:input type="text" path="name" class="form-control"
 									placeholder="Product Name" />
@@ -32,7 +32,7 @@
 						</div>
 						
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Brand</label>
+							<label class="col-form-label col-4">Brand</label>
 							<div class="col-8">
 								<sf:input type="text" path="brand" class="form-control"
 									placeholder="Brand Name" /> 
@@ -41,7 +41,7 @@
 						</div>
 
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Description</label>
+							<label class="col-form-label col-4">Description</label>
 							<div class="col-8">
 								<sf:textarea path="description" class="form-control"
 									placeholder="Enter your description here!" /> 
@@ -50,7 +50,7 @@
 						</div>
 
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Unit Price</label>
+							<label class="col-form-label col-4">Unit Price</label>
 							<div class="col-8">
 								<sf:input type="number" path="unitPrice" class="form-control"
 									placeholder="Enter Unit Price" />
@@ -59,7 +59,7 @@
 						</div>
 
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Quantity</label>
+							<label class="col-form-label col-4">Quantity</label>
 							<div class="col-8">
 								<sf:input type="number" path="quantity" class="form-control"
 									placeholder="Enter Quantity" />
@@ -68,7 +68,7 @@
 						</div>
 						
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Upload a file</label>
+							<label class="col-form-label col-4">Upload a file</label>
 							<div class="col-md-8">
 								<sf:input type="file" path="file" class="form-control"/>
 								<sf:errors path="file" cssClass="help-block" element="em"/> 
@@ -76,7 +76,7 @@
 						</div>
 
 						<div class="form-row mb-3">
-							<label class="control-label col-4">Category</label>
+							<label class="col-form-label col-4">Category</label>
 							<div class="col-8">
 								<sf:select path="categoryId" items="${categories}" itemLabel="name" itemValue="id" class="form-control"/>
 								<div class="text-right">
@@ -115,14 +115,14 @@
 	      <div class="modal-body">
 	        <sf:form id="categoryForm" class="form" modelAttribute="category" action="${contextRoot}/manage/category" method="POST">
        			<div class="form-row mb-4">
-					<label class="control-label col-4">Name</label>
+					<label class="col-form-label col-4">Name</label>
 					<div class="col-8 validate">
 						<sf:input type="text" path="name" class="form-control"
 							placeholder="Category Name" /> 
 					</div>
 				</div>
        			<div class="form-row mb-4">				
-					<label class="control-label col-4">Description</label>
+					<label class="col-form-label col-4">Description</label>
 					<div class="col-8 validate">
 						<sf:textarea path="description" class="form-control"
 							placeholder="Enter category description here!" /> 
@@ -147,7 +147,7 @@
 	<div class="row">
 		<div class='col-12'>
 			<div class="table-responsive-xl">
-				<table id="adminProductsTable" class="table table-striped table-bordered">	
+				<table id="adminProductsTable" class="table table-striped table-bordered table-hover">	
 					<thead>					
 						<tr>					
 							<th>Id</th>
@@ -160,7 +160,7 @@
 							<th>Edit</th>
 						</tr>					
 					</thead>			
-				</table>
+				</table><br/>
 			</div>
 		</div>
 	</div>

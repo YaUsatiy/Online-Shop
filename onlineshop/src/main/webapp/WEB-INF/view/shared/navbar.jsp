@@ -32,7 +32,7 @@
 						href="${contextRoot}/register">Sign Up</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
-					<li class="nav-item dropdown" id="userModel"><a
+					<li id ="userCart" class="nav-item dropdown" id="userModel"><a
 						class="nav-link dropdown-toggle" href="javascript:void(0)"
 						id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> ${userModel.fullName} <span

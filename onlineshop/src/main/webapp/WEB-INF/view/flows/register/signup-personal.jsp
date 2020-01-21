@@ -20,7 +20,7 @@
 							id="registerForm">
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">First Name</label>
+								<label class="col-form-label col-md-4">First Name</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="firstName" class="form-control"
 										placeholder="First Name" />
@@ -30,7 +30,7 @@
 
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Last Name</label>
+								<label class="col-form-label col-md-4">Last Name</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="lastName" class="form-control"
 										placeholder="Last Name" />
@@ -39,7 +39,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Email</label>
+								<label class="col-form-label col-md-4">Email</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="email" class="form-control"
 										placeholder="abc@zyx.com" />
@@ -48,7 +48,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Contact Number</label>
+								<label class="col-form-label col-md-4">Contact Number</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="contactNumber" class="form-control"
 										placeholder="XXXXXXX" maxlength="7" />
@@ -58,7 +58,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Password</label>
+								<label class="col-form-label col-md-4">Password</label>
 								<div class="col-md-8">
 									<sf:input type="password" path="password" class="form-control"
 										placeholder="Password" />
@@ -67,7 +67,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Confirm Password</label>
+								<label class="col-form-label col-md-4">Confirm Password</label>
 								<div class="col-md-8">
 									<sf:input type="password" path="confirmPassword"
 										class="form-control" placeholder="Re-type password" />
@@ -77,7 +77,7 @@
 							</div>
 
 							<div class="form-row mb-3">
-								<label class="control-label col-md-4">Select Role</label>
+								<label class="col-md-4">Select Role</label>
 								<div class="col-md-8">
 									<label class="radio-inline"> 
 										<sf:radiobutton path="role" value="USER" checked="checked" /> User

@@ -43,7 +43,7 @@
 									<th></th>
 								</tr>
 							</thead>
-						</table>
+						</table><br/>
 					</div>
 				</div>
 			</div>

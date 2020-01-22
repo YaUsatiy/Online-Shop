@@ -334,7 +334,57 @@ $(function() {
 				},
 				password : {
 					required : 'Please enter the password!',
-					minlength : 'Please enter at least three characters here'
+					minlength : 'Please enter at least three characters here!'
+				}
+			},
+			errorElement : "em",
+			errorPlacement : function(error, element) {
+				errorPlacement(error, element);
+			}
+		}
+
+		);
+
+	}
+	
+	// validating credit card form
+	$creditCardForm = $('#creditCardForm');
+
+	if ($creditCardForm.length) {
+
+		$creditCardForm.validate({
+			rules : {
+				number : {
+					required : true,
+					minlength : 16,
+					maxlength: 16
+				},
+				exp : {
+					required : true,
+					minlength : 5,
+					maxlength: 5
+				},
+				cvv : {
+					required : true,
+					minlength : 3,
+					maxlength: 3
+				}
+			},
+			messages : {
+				number : {
+					required : 'Please enter card number!',
+					minlength : 'Please enter exactly sixteen numbers!',
+					maxlength : 'Please enter exactly sixteen numbers!'
+				},
+				exp : {
+					required : 'Please enter card expiration date!',
+					minlength : 'Please enter exactly five characters!',
+				    maxlength : 'Please enter exactly five characters!'
+				},
+				cvv : {
+					required : 'Please enter cvv code (the 3-digit code on back)!',
+					minlength : 'Please enter exactly three digits!',
+					maxlength : 'Please enter exactly three digits!'
 				}
 			},
 			errorElement : "em",

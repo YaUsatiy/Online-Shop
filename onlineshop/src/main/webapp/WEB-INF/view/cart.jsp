@@ -3,11 +3,12 @@
 		<div class="mt-3 row">
 			<div class="col-12">
 				<div class="alert alert-info" role="alert">
-					<h3 class="text-center">${message}</h3>
-					<button type="button" class="close" data-dismiss="alert"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<h3 class="text-center">${message}
+						<button type="button" class="close" data-dismiss="alert"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</h3>
 				</div>
 			</div>
 		</div>
@@ -101,7 +102,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<div class="jumbotron">
+			<div class="jumbotron my-4">
 				<h3 class="text-center">Your Cart is Empty!</h3>
 			</div>
 		</c:otherwise>

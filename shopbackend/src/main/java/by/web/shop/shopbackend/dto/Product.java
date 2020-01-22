@@ -34,7 +34,6 @@ public class Product implements Serializable {
 	@Column(name = "unit_price")
 	@Min(value = 1, message = "The price cannot be less than 1!")
 	private double unitPrice;
-	@Min(value = 1, message = "The quantity cannot be less than 1!")
 	private int quantity;
 	@Column(name = "is_active")
 	private boolean active;

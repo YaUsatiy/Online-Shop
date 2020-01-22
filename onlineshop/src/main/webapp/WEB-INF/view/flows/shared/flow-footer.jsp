@@ -7,11 +7,7 @@
 		
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 		
-		<script src="${js}/datatables.js"></script>
-		
 		<script src="${js}/dataTables.bootstrap4.js"></script>
-		
-		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- My JavaScript -->
 		<script src="${js}/myapp.js"></script>

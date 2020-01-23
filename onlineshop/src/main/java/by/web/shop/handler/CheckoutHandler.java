@@ -33,6 +33,8 @@ public class CheckoutHandler {
 	@Autowired
 	private HttpSession session;
 	
+	private String TRANSITIONAL_SUCCESS_VALUE = "success";
+	
 	public CheckoutModel init(String name) throws Exception{
 
 		User user = userDao.getByEmail(name);
@@ -75,24 +77,18 @@ public class CheckoutHandler {
 		
 	}
 	
-	public String saveAddressSelection(CheckoutModel checkoutModel, int shippingId) {
-
-		String transitionValue = "success";
-		
-		//logger.info(String.valueOf(shippingId));
+	public String saveAddressSelection(CheckoutModel checkoutModel, int shippingId) {	
 		
 		Address shipping = userDao.getAddress(shippingId);		
 		
 		checkoutModel.setShipping(shipping);
 		
-		return transitionValue;
+		return TRANSITIONAL_SUCCESS_VALUE;
 		
 	}
 			
 	
 	public String saveAddress(CheckoutModel checkoutModel, Address shipping) {
-
-		String transitionValue = "success";
 		
 		// set the user id
 		// set shipping as true
@@ -103,14 +99,12 @@ public class CheckoutHandler {
 		// set the shipping id to flowScope object
 		checkoutModel.setShipping(shipping);
 		
-		return transitionValue;
+		return TRANSITIONAL_SUCCESS_VALUE;
 		
 	}
 		
 
 	public String saveOrder(CheckoutModel checkoutModel) {
-		String transitionValue = "success";	
-		
 		// create a new order object
 		OrderDetail orderDetail = new OrderDetail();
 				
@@ -180,7 +174,7 @@ public class CheckoutHandler {
 			userModel.setCart(cart);
 		}
 		
-		return transitionValue;		
+		return TRANSITIONAL_SUCCESS_VALUE;		
 	}
 
 	

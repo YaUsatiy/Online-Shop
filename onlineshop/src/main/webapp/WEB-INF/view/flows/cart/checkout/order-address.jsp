@@ -10,7 +10,7 @@
 				
 				<div class="row">
 					<c:forEach items="${addresses}" var="address">					
-						<div class="col-12">
+						<div class="col-12 mb-3">
 							<h4><i>First address : </i>${address.addressLineOne}</h4>
 							<h4><i>Second address : </i>${address.addressLineTwo}</h4>
 							<h4><i>City : </i>${address.city} - ${address.postalCode}</h4>

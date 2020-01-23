@@ -1,3 +1,4 @@
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>	
 <%@include file="../../shared/flow-header.jsp"%>	
 
 <div class="container">
@@ -34,7 +35,8 @@
 			                        <h3 class="text-center">Payment Details</h3>
 			                    </div>
 			                    <hr>
-			                    <form class="form" id="creditCardForm">
+			                    <sf:form class="form" id="creditCardForm" method="POST">
+			                    	<input type="hidden" name="_eventId" value="pay" />	
 			                        <div class="form-group">
 			                            <label for="number" class="col-form-label mb-1" >Card number</label>
 			                            <input id="number" name="number" type="tel" class="form-control" required/>
@@ -67,7 +69,7 @@
 			                                <span id="payment-button-sending" style="display:none;">Sending...</span>
 			                            </button>
 			                        </div>
-			                    </form>
+			                    </sf:form>
 			                </div>
 			            </div>
 			        </div>

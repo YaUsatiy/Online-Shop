@@ -92,4 +92,26 @@ public class ProductDaoImpl implements ProductDao {
 							.setMaxResults(count)
 								.getResultList();
 	}
+
+	@Override
+	public List<Product> getMostViewedProducts(int count) {
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery("FROM Product WHERE active = :active ORDER BY views DESC", Product.class)
+						.setParameter("active", true)
+							.setFirstResult(0)
+							.setMaxResults(count)
+								.getResultList();
+	}
+
+	@Override
+	public List<Product> getMostPurchasedProducts(int count) {
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery("FROM Product WHERE active = :active ORDER BY purchases DESC", Product.class)
+						.setParameter("active", true)
+							.setFirstResult(0)
+							.setMaxResults(count)
+								.getResultList();
+	}
 }

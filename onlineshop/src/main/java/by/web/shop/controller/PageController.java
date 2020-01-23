@@ -32,6 +32,8 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
 		mv.addObject("categories", categoryDao.list());
+		mv.addObject("purchasedProducts", productDao.getMostPurchasedProducts(5));
+		mv.addObject("viewedProducts", productDao.getMostViewedProducts(5));
 		mv.addObject("userClickHome", true);
 		return mv;
 	}

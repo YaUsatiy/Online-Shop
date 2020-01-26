@@ -103,15 +103,4 @@ public class CartLineDaoImpl implements CartLineDao {
 									.setParameter("available", true)
 										.getResultList();
 	}
-
-	@Override
-	public boolean addOrderDetail(OrderDetail orderDetail) {
-		try {			
-			sessionFactory.getCurrentSession().persist(orderDetail);			
-			return true;
-		}
-		catch(Exception ex) {
-			return false;
-		}
-	}
 }

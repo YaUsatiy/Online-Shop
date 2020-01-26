@@ -16,5 +16,4 @@ public interface CartLineDao {
 	public CartLine getByCartAndProduct(int cartId, int productId);		
 	boolean updateCart(Cart cart);
 	public List<CartLine> listAvailable(int cartId);
-	public boolean addOrderDetail(OrderDetail orderDetail);
 }

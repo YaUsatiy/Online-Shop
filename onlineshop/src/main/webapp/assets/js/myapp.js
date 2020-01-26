@@ -10,10 +10,12 @@ $(function() {
 		$('#listProducts').addClass('active');
 		break;
 	case 'Product Management':
-		$('#manageProducts').addClass('active');
+	case 'Orders Management':
+		$('#adminDrop').addClass('active');
 		break;
+	case 'My Orders':
 	case 'Shopping Cart':
-		$('#userCart').addClass('active');
+		$('#userDrop').addClass('active');
 		break;
 	default:
 		if (menu == 'Home')

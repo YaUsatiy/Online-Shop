@@ -3,6 +3,7 @@ package by.web.shop.shopbackend.dao;
 import java.util.List;
 
 import by.web.shop.shopbackend.dto.Address;
+import by.web.shop.shopbackend.dto.OrderDetail;
 import by.web.shop.shopbackend.dto.User;
 
 public interface UserDao {
@@ -14,4 +15,5 @@ public interface UserDao {
 	Address getBillingAddress(int userId);
 	User get(int id);
 	Address getAddress(int addressId);
+	List<OrderDetail> getOrders(User user);
 }

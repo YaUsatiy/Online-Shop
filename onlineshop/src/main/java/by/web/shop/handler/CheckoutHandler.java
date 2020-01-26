@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import by.web.shop.model.CheckoutModel;
 import by.web.shop.model.UserModel;
 import by.web.shop.shopbackend.dao.CartLineDao;
+import by.web.shop.shopbackend.dao.OrderDetailDao;
 import by.web.shop.shopbackend.dao.ProductDao;
 import by.web.shop.shopbackend.dao.UserDao;
 import by.web.shop.shopbackend.dto.Address;
@@ -30,6 +31,8 @@ public class CheckoutHandler {
 	private ProductDao productDao;
 	@Autowired
 	private CartLineDao cartLineDao;
+	@Autowired
+	private OrderDetailDao orderDetailDao;
 	@Autowired
 	private HttpSession session;
 	
@@ -156,7 +159,7 @@ public class CheckoutHandler {
 		orderDetail.setOrderDate(new Date());
 		
 		// save the order
-		cartLineDao.addOrderDetail(orderDetail);
+		orderDetailDao.add(orderDetail);
 
 		// set it to the orderDetails of checkoutModel
 		checkoutModel.setOrderDetail(orderDetail);

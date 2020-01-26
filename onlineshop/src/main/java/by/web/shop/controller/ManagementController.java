@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import by.web.shop.shopbackend.dao.CategoryDao;
+import by.web.shop.shopbackend.dao.OrderDetailDao;
 import by.web.shop.shopbackend.dao.ProductDao;
 import by.web.shop.shopbackend.dto.Category;
 import by.web.shop.shopbackend.dto.Product;
@@ -29,9 +30,10 @@ import validator.ProductImageValidator;
 public class ManagementController {
 	@Autowired
 	private CategoryDao categoryDao;
-	
 	@Autowired
 	private ProductDao productDao;
+	@Autowired
+	private OrderDetailDao orderDetailDao;
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required = false)String operation) {		
@@ -114,5 +116,14 @@ public class ManagementController {
 	public String handleCategorySubmission(@ModelAttribute Category category) {
 		categoryDao.add(category);
 		return "redirect:/manage/products?operation=category";
+	}
+	
+	@RequestMapping(value = "/orders")
+	public ModelAndView manageOrders() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Orders Management");		
+		mv.addObject("userClickManageOrders", true);
+		mv.addObject("orders", orderDetailDao.list());
+		return mv;
 	}
 }

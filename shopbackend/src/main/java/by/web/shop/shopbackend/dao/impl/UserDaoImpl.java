@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import by.web.shop.shopbackend.dao.UserDao;
 import by.web.shop.shopbackend.dto.Address;
+import by.web.shop.shopbackend.dto.OrderDetail;
 import by.web.shop.shopbackend.dto.User;
 
 @Repository("userDao")
@@ -76,7 +77,6 @@ public class UserDaoImpl implements UserDao {
 						.setParameter("userId", userId)
 						.setParameter("isShipping", true)
 							.getResultList();
-		
 	}
 
 	@Override
@@ -115,5 +115,15 @@ public class UserDaoImpl implements UserDao {
 			System.out.println(ex.getMessage());
 			return null;
 		}
+	}
+
+	@Override
+	public List<OrderDetail> getOrders(User user) {
+		String selectQuery = "FROM OrderDetail WHERE user = :user";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,OrderDetail.class)
+						.setParameter("user", user)
+							.getResultList();
 	}
 }

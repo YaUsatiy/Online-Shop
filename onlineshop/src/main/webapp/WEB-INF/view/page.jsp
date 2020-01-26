@@ -71,6 +71,9 @@
 			<c:if test="${userClickShowCart eq true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
+			<c:if test="${userClickMyOrders or userClickManageOrders eq true}">
+				<%@include file="orders.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Footer -->

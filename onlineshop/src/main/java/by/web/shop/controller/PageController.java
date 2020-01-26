@@ -2,6 +2,7 @@ package by.web.shop.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,18 +15,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import by.web.shop.exception.ProductNotFoundException;
+import by.web.shop.model.UserModel;
 import by.web.shop.shopbackend.dao.CategoryDao;
+import by.web.shop.shopbackend.dao.OrderDetailDao;
 import by.web.shop.shopbackend.dao.ProductDao;
+import by.web.shop.shopbackend.dao.UserDao;
 import by.web.shop.shopbackend.dto.Category;
 import by.web.shop.shopbackend.dto.Product;
+import by.web.shop.shopbackend.dto.User;
 
 @Controller
 public class PageController {
-
 	@Autowired
 	private CategoryDao categoryDao;
 	@Autowired
 	private ProductDao productDao;
+	@Autowired
+	private UserDao userDao;
+	@Autowired
+	private OrderDetailDao orderDetailDao;
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
@@ -36,7 +46,7 @@ public class PageController {
 		mv.addObject("viewedProducts", productDao.getMostViewedProducts(5));
 		mv.addObject("userClickHome", true);
 		return mv;
-	}
+	}	
 	
 	@RequestMapping(value = {"/about"})
 	public ModelAndView about() {
@@ -122,8 +132,26 @@ public class PageController {
 		}
 		return "redirect:/login?logout";
 	}
+	
+	@RequestMapping(value = {"/myOrders"})
+	public ModelAndView userOrders() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "My Orders");
+		mv.addObject("userClickMyOrders", true);
+		User user = userDao.getByEmail(((UserModel)session.getAttribute("userModel")).getEmail());
+		mv.addObject("orders", userDao.getOrders(user));
+		return mv;
+	}
+	
+	@RequestMapping(value = {"/show/invoice/{id}"})
+	public ModelAndView showInvoice(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("/flows/cart/checkout/order-confirm");
+		mv.addObject("orderDetail", orderDetailDao.get(id));
+		mv.addObject("actualEmail", ((UserModel)session.getAttribute("userModel")).getEmail());
+		mv.addObject("actualRole", ((UserModel)session.getAttribute("userModel")).getRole());
+		return mv;
+	}	
 }
-
 
 
 

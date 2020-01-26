@@ -20,19 +20,31 @@
 				<li class="nav-item" id="contact"><a class="nav-link"
 					href="${contextRoot}/contact">Contact</a></li>
 				<security:authorize access="hasAuthority('ADMIN')">
-					<li class="nav-item" id="manageProducts"><a class="nav-link"
-						href="${contextRoot}/manage/products">Manage Products</a></li>
+					<li id ="adminDrop" class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="javascript:void(0)"
+						id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Manage 
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+							<li class="dropdown-item" id="manageProducts"><a
+									href="${contextRoot}/manage/products">Manage Products</a>
+								</li>
+								<li class="dropdown-item" id="manageOrders"><a
+									href="${contextRoot}/manage/orders">Manage Orders</a>
+								</li>
+						</ul>
+					</li>
 				</security:authorize>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<security:authorize access="isAnonymous()">
-					<li class="nav-item" id="login"><a class="nav-link"
+					<li class="nav-item" id="login"><a
 						href="${contextRoot}/login">Log in</a></li>
-					<li class="nav-item" id="register"><a class="nav-link"
+					<li class="nav-item" id="register"><a 
 						href="${contextRoot}/register">Sign Up</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
-					<li id ="userCart" class="nav-item dropdown" id="userModel"><a
+					<li id ="userDrop" class="nav-item dropdown" id="userModel"><a
 						class="nav-link dropdown-toggle" href="javascript:void(0)"
 						id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> ${userModel.fullName} <span
@@ -40,12 +52,18 @@
 					</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							<security:authorize access="hasAuthority('USER')">
-								<li class="dropdown-item" id="cart"><a
-									href="${contextRoot}/cart/show"> <i
-										class="fas fa-shopping-cart"></i>&#160;<span
-										class="badge badge-pill badge-success">${userModel.cart.cartLines}</span>
-										- &#36; ${userModel.cart.grandTotal}
-								</a></li>
+								<li class="dropdown-item" id="cart">
+									<a href="${contextRoot}/cart/show"> <i
+											class="fas fa-shopping-cart"></i>&#160;<span
+											class="badge badge-pill badge-success">${userModel.cart.cartLines}</span>
+											- &#36; ${userModel.cart.grandTotal}
+									</a>
+								</li>
+								<li id ="userOrders" class="dropdown-item" id="orders">
+									<a
+										href="${contextRoot}/myOrders">My orders
+									</a>
+								</li>
 								<li role="separator" class="dropdown-divider"></li>
 							</security:authorize>
 							<li class="dropdown-item" id="logout"><a

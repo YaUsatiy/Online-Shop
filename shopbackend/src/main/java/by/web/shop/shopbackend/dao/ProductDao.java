@@ -3,6 +3,7 @@ package by.web.shop.shopbackend.dao;
 import java.util.List;
 
 import by.web.shop.shopbackend.dto.Product;
+import by.web.shop.shopbackend.dto.Review;
 
 public interface ProductDao {
 	Product get(int id);
@@ -16,4 +17,5 @@ public interface ProductDao {
 	List<Product> getLatestActiveProducts(int count);
 	List<Product> getMostViewedProducts(int count);
 	List<Product> getMostPurchasedProducts(int count);
+	List<Review> getProductReviews(int productId);
 }

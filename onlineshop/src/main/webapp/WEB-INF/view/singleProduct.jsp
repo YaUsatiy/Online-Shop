@@ -20,7 +20,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-8">
-			<h3>${product.name}</h3>
+			<h3>${product.name} <a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-info">Watch Reviews</a></h3>
 			<hr />
 			<p>${product.description}</p>
 			<hr />

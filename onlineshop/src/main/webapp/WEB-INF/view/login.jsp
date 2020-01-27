@@ -109,7 +109,13 @@
 												class="form-control" />
 										</div>
 									</div>
-									<div class="form-row mb-3">
+									
+									<div class="form-check offset-4 col-md-8 mb-2">
+										<input type="checkbox" class="form-check-input" id="remember-me" name="remember-me" />
+										<label class="form-check-label" for="remember-me">Remember me</label>
+									</div>
+									
+									<div class="form-row mb-2">
 										<div class="offset-4 col-md-8">
 											<input type="hidden" name="${_csrf.parameterName}"
 												value="${_csrf.token}" /> 

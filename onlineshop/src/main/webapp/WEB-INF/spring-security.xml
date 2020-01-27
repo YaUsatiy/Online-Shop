@@ -22,6 +22,16 @@
 		<intercept-url pattern="/**" access="permitAll"/>
 		<form-login login-page="/login" />
 		<access-denied-handler error-page="/access-denied"/>
+		
+		 <logout
+                invalidate-session="true"
+                logout-url="/perform-logout"/>
+		
+		<remember-me 
+        	token-validity-seconds="86400"
+			remember-me-parameter="remember-me" 
+			remember-me-cookie="remember-me"
+			data-source-ref="dataSource" />
 	</http>
 
 	<authentication-manager>

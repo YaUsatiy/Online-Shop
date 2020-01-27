@@ -74,6 +74,9 @@
 			<c:if test="${userClickMyOrders or userClickManageOrders eq true}">
 				<%@include file="orders.jsp"%>
 			</c:if>
+			<c:if test="${userClickReviews or userClickMyReviews eq true}">
+				<%@include file="reviews.jsp"%>
+			</c:if>
 		</div>
 
 		<!-- Footer -->

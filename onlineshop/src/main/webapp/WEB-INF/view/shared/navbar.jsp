@@ -38,9 +38,9 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<security:authorize access="isAnonymous()">
-					<li class="nav-item" id="login"><a
+					<li class="nav-item" id="login"><a class="nav-link"
 						href="${contextRoot}/login">Log in</a></li>
-					<li class="nav-item" id="register"><a 
+					<li class="nav-item" id="register"><a class="nav-link" 
 						href="${contextRoot}/register">Sign Up</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
@@ -59,9 +59,15 @@
 											- &#36; ${userModel.cart.grandTotal}
 									</a>
 								</li>
-								<li id ="userOrders" class="dropdown-item" id="orders">
+								<li role="separator" class="dropdown-divider"></li>
+								<li id ="userOrders" class="dropdown-item">
 									<a
 										href="${contextRoot}/myOrders">My orders
+									</a>
+								</li>
+								<li class="dropdown-item">
+									<a
+										href="${contextRoot}/myReviews">My reviews
 									</a>
 								</li>
 								<li role="separator" class="dropdown-divider"></li>

@@ -59,6 +59,24 @@
 								<h4 class="card-title">
 									<a href="${contextRoot}/show/${product.id}/product">${product.name}</a>
 								</h4>
+								<small>
+									<c:choose>
+								    	<c:when test="${product.reviewCount > 0}">
+											<c:forEach begin="1" end="${product.rating}">
+								       			<i class="fas fa-star" style="color : orange"></i>
+										    </c:forEach>
+										    <c:forEach begin="${product.rating}" end="4">
+										       <i class="fas fa-star" style="color : gray"></i>
+										    </c:forEach>
+											<span class="text-secondary">${product.rating}</span>
+											 <a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-link">${product.reviewCount} reviews</a>
+										 </c:when>
+										 <c:otherwise>
+										 	<span class="text-secondary">No reviews</span>
+										 	<a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-primary">Write review</a>
+										 </c:otherwise>
+									</c:choose>
+								</small>
 								<h5>$${product.unitPrice}</h5>
 								<p class="card-text">${product.description}</p>
 							</div>
@@ -92,6 +110,24 @@
 								<h4 class="card-title">
 									<a href="${contextRoot}/show/${product.id}/product">${product.name}</a>
 								</h4>
+								<small>
+									<c:choose>
+								    	<c:when test="${product.reviewCount > 0}">
+											<c:forEach begin="1" end="${product.rating}">
+								       			<i class="fas fa-star" style="color : orange"></i>
+										    </c:forEach>
+										    <c:forEach begin="${product.rating}" end="4">
+										       <i class="fas fa-star" style="color : gray"></i>
+										    </c:forEach>
+											<span class="text-secondary">${product.rating}</span>
+											 <a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-link">${product.reviewCount} reviews</a>
+										 </c:when>
+										 <c:otherwise>
+										 	<span class="text-secondary">No reviews</span>
+										 	<a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-primary">Write review</a>
+										 </c:otherwise>
+									</c:choose>
+								</small>
 								<h5>$${product.unitPrice}</h5>
 								<p class="card-text">${product.description}</p>
 							</div>

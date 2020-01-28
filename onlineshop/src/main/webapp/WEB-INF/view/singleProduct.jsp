@@ -20,7 +20,25 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-8">
-			<h3>${product.name} <a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-info">Watch Reviews</a></h3>
+			<h2>${product.name}</h2>
+			<h4>
+				<c:choose>
+			    	<c:when test="${product.reviewCount > 0}">
+						<c:forEach begin="1" end="${product.rating}">
+			       			<i class="fas fa-star" style="color : orange"></i>
+					    </c:forEach>
+					    <c:forEach begin="${product.rating}" end="4">
+					       <i class="fas fa-star" style="color : gray"></i>
+					    </c:forEach>
+						<span class="text-secondary">${product.rating}</span>
+						 <a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-link">${product.reviewCount} reviews</a>
+					 </c:when>
+					 <c:otherwise>
+					 	<span class="text-secondary">No reviews</span>
+					 	<a href="${contextRoot}/show/product/${product.id}/reviews" class="btn btn-sm btn-primary">Write review</a>
+					 </c:otherwise>
+				</c:choose>
+			</h4>
 			<hr />
 			<p>${product.description}</p>
 			<hr />

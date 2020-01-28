@@ -32,6 +32,9 @@
 								<li class="dropdown-item" id="manageOrders"><a
 									href="${contextRoot}/manage/orders">Manage Orders</a>
 								</li>
+								<li class="dropdown-item" id="manageReviews"><a
+									href="${contextRoot}/manage/reviews">Manage Reviews</a>
+								</li>
 						</ul>
 					</li>
 				</security:authorize>
@@ -62,12 +65,12 @@
 								<li role="separator" class="dropdown-divider"></li>
 								<li id ="userOrders" class="dropdown-item">
 									<a
-										href="${contextRoot}/myOrders">My orders
+										href="${contextRoot}/user/myOrders">My orders
 									</a>
 								</li>
 								<li class="dropdown-item">
 									<a
-										href="${contextRoot}/myReviews">My reviews
+										href="${contextRoot}/user/myReviews">My reviews
 									</a>
 								</li>
 								<li role="separator" class="dropdown-divider"></li>

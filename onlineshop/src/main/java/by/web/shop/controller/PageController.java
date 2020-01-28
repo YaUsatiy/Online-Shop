@@ -147,23 +147,24 @@ public class PageController {
 		return "redirect:/login?logout";
 	}
 	
-	@RequestMapping(value = {"/myOrders"})
+	@RequestMapping(value = {"/user/myOrders"})
 	public ModelAndView userOrders() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "My Orders");
 		mv.addObject("userClickMyOrders", true);
-		User user = userDao.getByEmail(((UserModel)session.getAttribute("userModel")).getEmail()); //«¿Ÿ»“»“‹ ›“” —“–¿Õ»÷”!
+		User user = userDao.getByEmail(((UserModel)session.getAttribute("userModel")).getEmail());
 		mv.addObject("orders", userDao.getOrders(user));
 		return mv;
 	}
 	
-	@RequestMapping(value = {"/myReviews"})
+	@RequestMapping(value = {"/user/myReviews"})
 	public ModelAndView userReviews() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "My Reviews");
 		mv.addObject("userClickMyReviews", true);
 		User user = userDao.getByEmail(((UserModel)session.getAttribute("userModel")).getEmail());
-		mv.addObject("reviews", reviewDao.listByUser(user.getId()));
+		mv.addObject("reviews", reviewDao.listByUser(user));
+		mv.addObject("notShow", true);
 		Review review = new Review();
 		mv.addObject("review", review);
 		return mv;
@@ -179,19 +180,22 @@ public class PageController {
 	}	
 	
 	@RequestMapping(value = {"/show/product/{id}/reviews"})
-	public ModelAndView showReviews(@PathVariable("id") int id) {
+	public ModelAndView showReviews(@PathVariable("id") int id, @RequestParam(name = "result", required = false) String result) {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Reviews");
 		mv.addObject("userClickReviews", true);
-		mv.addObject("reviews", reviewDao.listByProduct(id));
+		Product product = productDao.get(id);
+		mv.addObject("reviews", reviewDao.listByProduct(product));
 		Review review = new Review();
-		review.setProductId(id);
-		//«¿Ÿ»“»“‹ ›“” —“–¿Õ»÷”!
+		review.setProduct(product);
 		mv.addObject("review", review);
+		if (result != null) {
+			mv.addObject("message", "Review was successfully added!");
+		}
 		return mv;
 	}	
 	
-	@RequestMapping(value = "/product/{id}/add/review", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/product/{id}/add/review", method = RequestMethod.POST)
 	public String addReview(@Valid @ModelAttribute("review") Review review, BindingResult results, Model model, @PathVariable int id) {
 		if (results.hasErrors()) {
 			model.addAttribute("title", "Reviews");		
@@ -199,36 +203,12 @@ public class PageController {
 			return "page";
 		}
 		review.setReviewDate(new Date());
-		review.setUserId(((UserModel)session.getAttribute("userModel")).getId());
-		review.setProductId(id);
+		User user = userDao.get(((UserModel)session.getAttribute("userModel")).getId());
+		review.setUser(user);
+		Product product = productDao.get(id);
+		review.setProduct(product);
 		reviewDao.add(review);
-		productService.updateRating(id);
-		return "redirect:/show/product/" + id + "/reviews";
+		productService.updateRatingAdd(product);
+		return "redirect:/show/product/" + id + "/reviews?result=success";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

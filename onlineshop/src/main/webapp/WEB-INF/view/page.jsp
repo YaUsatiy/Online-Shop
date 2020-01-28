@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <spring:url var="css" value="/resources/css" />
@@ -74,7 +75,7 @@
 			<c:if test="${userClickMyOrders or userClickManageOrders eq true}">
 				<%@include file="orders.jsp"%>
 			</c:if>
-			<c:if test="${userClickReviews or userClickMyReviews eq true}">
+			<c:if test="${userClickReviews or userClickMyReviews or userClickManageReviews eq true}">
 				<%@include file="reviews.jsp"%>
 			</c:if>
 		</div>

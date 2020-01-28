@@ -1,8 +1,6 @@
 package by.web.shop.shopbackend.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -10,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
@@ -48,9 +45,13 @@ public class Product implements Serializable {
 	private int supplierId;
 	private int purchases;
 	private int views;
+	
+	@Column(name = "review_count", columnDefinition = "int default 0")
+	private int reviewCount;
+	
 	@JsonIgnore
-	@Column(name="rating", columnDefinition = "int default 0")
-	private float rating;
+	@Column(name="rating", columnDefinition = "float(10) default 0.0")
+	private double rating;
 	
 	@Transient
 	private MultipartFile file;
@@ -66,7 +67,6 @@ public class Product implements Serializable {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-	
 	
 	public int getId() {
 		return id;
@@ -141,12 +141,20 @@ public class Product implements Serializable {
 		this.views = views;
 	}
 
-	public float getRating() {
+	public double getRating() {
 		return rating;
 	}
 
-	public void setRating(float rating) {
+	public void setRating(double rating) {
 		this.rating = rating;
+	}
+
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
 	}
 
 }

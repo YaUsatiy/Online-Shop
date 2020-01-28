@@ -11,6 +11,7 @@ $(function() {
 		break;
 	case 'Product Management':
 	case 'Orders Management':
+	case 'Reviews Management':
 		$('#adminDrop').addClass('active');
 		break;
 	case 'My Orders':

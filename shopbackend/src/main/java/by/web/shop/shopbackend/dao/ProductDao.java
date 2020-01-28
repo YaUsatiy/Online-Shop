@@ -17,5 +17,5 @@ public interface ProductDao {
 	List<Product> getLatestActiveProducts(int count);
 	List<Product> getMostViewedProducts(int count);
 	List<Product> getMostPurchasedProducts(int count);
-	List<Review> getProductReviews(int productId);
+	List<Review> getProductReviews(Product product);
 }

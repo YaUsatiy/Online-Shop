@@ -17,11 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import by.web.shop.service.ProductService;
 import by.web.shop.shopbackend.dao.CategoryDao;
 import by.web.shop.shopbackend.dao.OrderDetailDao;
 import by.web.shop.shopbackend.dao.ProductDao;
+import by.web.shop.shopbackend.dao.ReviewDao;
 import by.web.shop.shopbackend.dto.Category;
 import by.web.shop.shopbackend.dto.Product;
+import by.web.shop.shopbackend.dto.Review;
 import by.web.shop.util.FileUtil;
 import validator.ProductImageValidator;
 
@@ -34,6 +37,10 @@ public class ManagementController {
 	private ProductDao productDao;
 	@Autowired
 	private OrderDetailDao orderDetailDao;
+	@Autowired
+	private ReviewDao reviewDao;
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation", required = false)String operation) {		
@@ -109,7 +116,7 @@ public class ManagementController {
 		boolean isActive = product.isActive();
 		product.setActive(!isActive);
 		productDao.update(product);		
-		return (isActive)? "Product Dectivated Successfully!": "Product Activated Successfully";
+		return (isActive)? "Product Dectivated Successfully!": "Product Activated Successfully!";
 	}
 	
 	@RequestMapping(value = "/category", method = RequestMethod.POST)
@@ -126,4 +133,25 @@ public class ManagementController {
 		mv.addObject("orders", orderDetailDao.list());
 		return mv;
 	}
+	
+	@RequestMapping(value = "/reviews")
+	public ModelAndView manageReviews(@RequestParam(name = "result", required = false) String result) {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Reviews Management");		
+		mv.addObject("userClickManageReviews", true);
+		mv.addObject("reviews", reviewDao.list());
+		if (result != null) {
+			mv.addObject("message", "Review was successfully deleted!");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "/review/{id}/delete", method = RequestMethod.GET)
+	public String deleteReview(@PathVariable int id) {
+		Review review = reviewDao.get(id);
+		productService.updateRatingDelete(review.getProduct());
+		reviewDao.delete(review);
+		return "redirect:/manage/reviews?result=success";
+	}
+	
 }

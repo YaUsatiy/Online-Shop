@@ -27,18 +27,18 @@ public class ReviewTestCase {
 		context.scan("by.web.shop.shopbackend");
 		context.refresh();
 		reviewDao = (ReviewDao) context.getBean("reviewDao");
-		productDao = (ProductDao) context.getBean("productDao");
 		userDao = (UserDao) context.getBean("userDao");
+		productDao = (ProductDao) context.getBean("productDao");
 	}
 	
 	@Test
 	public void testAddReview() {
 		review = new Review();
-		review.setProductId(1);
+		review.setProduct(productDao.get(1));
 		review.setComment("Nice Product! I appreciate it Again)");
 		review.setRating(4);
 		User user = userDao.getByEmail("bb@gmail.com");
-		review.setUserId(user.getId());
+		review.setUser(user);
 		review.setReviewDate(new Date());
 		assertEquals(true, reviewDao.add(review));
 	}

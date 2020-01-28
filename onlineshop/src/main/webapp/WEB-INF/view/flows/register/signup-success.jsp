@@ -1,7 +1,7 @@
 <%@include file="../shared/flow-header.jsp"%>
 
 <div class="content">
-	<div class="container">
+	<div class="container mt-4">
 		<div class="row my-8">
 			<div class="offset-4 col-sm-4">
 				<div class="text-center jumbotron">

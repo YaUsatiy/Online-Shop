@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.web.shop.shopbackend.dao.ProductDao;
-import by.web.shop.shopbackend.dto.Category;
 import by.web.shop.shopbackend.dto.Product;
 import by.web.shop.shopbackend.dto.Review;
 
@@ -117,11 +116,11 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<Review> getProductReviews(int productId) {
+	public List<Review> getProductReviews(Product product) {
 		return sessionFactory
 				.getCurrentSession()
-					.createQuery("FROM Review WHERE productId = :productId", Review.class)
-						.setParameter("productId", productId)
+					.createQuery("FROM Review WHERE product = :product", Review.class)
+						.setParameter("product", product)
 							.getResultList();
 	}
 }

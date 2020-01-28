@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import by.web.shop.shopbackend.dao.ReviewDao;
+import by.web.shop.shopbackend.dto.Product;
 import by.web.shop.shopbackend.dto.Review;
+import by.web.shop.shopbackend.dto.User;
 
 @Repository("reviewDao")
 @Transactional
@@ -49,20 +51,20 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public List<Review> listByProduct(int productId) {
+	public List<Review> listByProduct(Product product) {
 		return sessionFactory
 				.getCurrentSession()
-					.createQuery("FROM Review WHERE productId = :productId", Review.class)
-						.setParameter("productId", productId)
+					.createQuery("FROM Review WHERE product = :product", Review.class)
+						.setParameter("product", product)
 								.getResultList();
 	}
 	
 	@Override
-	public List<Review> listByUser(int userId) {
+	public List<Review> listByUser(User user) {
 		return sessionFactory
 				.getCurrentSession()
-					.createQuery("FROM Review WHERE userId = :userId", Review.class)
-						.setParameter("userId", userId)
+					.createQuery("FROM Review WHERE user = :user", Review.class)
+						.setParameter("user", user)
 								.getResultList();
 	}
 

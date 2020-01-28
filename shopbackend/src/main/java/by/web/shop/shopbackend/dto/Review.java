@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -18,8 +20,9 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;    
     
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne()
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@NotBlank(message = "Please enter your comment about selected product!")
     private String comment;
@@ -28,8 +31,9 @@ public class Review {
 	@Max(value = 5, message = "The rating cannot be more than 5!")
     private int rating;
    
-	@Column(name = "product_id")
-	private int productId;
+	@ManyToOne()
+	@JoinColumn(name = "product_id")
+	private Product product;
  
     @Column(name="review_date")
 	private Date reviewDate;
@@ -42,12 +46,12 @@ public class Review {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public String getComment() {
@@ -66,12 +70,12 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public int getProductId() {
-		return productId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getReviewDate() {

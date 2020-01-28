@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import by.web.shop.shopbackend.dao.CartLineDao;
 import by.web.shop.shopbackend.dto.Cart;
 import by.web.shop.shopbackend.dto.CartLine;
-import by.web.shop.shopbackend.dto.OrderDetail;
 
 @Repository("cartLineDao")
 @Transactional

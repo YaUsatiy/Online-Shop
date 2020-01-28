@@ -13,13 +13,22 @@ import by.web.shop.shopbackend.dto.Review;
 @Service("productService")
 public class ProductService {
 	@Autowired
-	ProductDao productDao;
+	private ProductDao productDao;
+	private static final int DECIMAL_PLACES_KOEFFICIENT = 10; 
 	
-	public void updateRating(int productId) {
-		List<Review> reviews = productDao.getProductReviews(productId);
+	public void updateRatingAdd(Product product) {
+		List<Review> reviews = productDao.getProductReviews(product);
 		OptionalDouble rating = reviews.stream().mapToInt(a -> a.getRating()).average();
-		Product product = productDao.get(productId);
-		product.setRating(Math.round(rating.getAsDouble()));
+		product.setRating(Math.round(rating.getAsDouble() * DECIMAL_PLACES_KOEFFICIENT) / DECIMAL_PLACES_KOEFFICIENT);
+		product.setReviewCount(product.getReviewCount() + 1);
+		productDao.update(product);
+	}
+	
+	public void updateRatingDelete(Product product) {
+		List<Review> reviews = productDao.getProductReviews(product);
+		OptionalDouble rating = reviews.stream().mapToInt(a -> a.getRating()).average();
+		product.setRating(Math.round(rating.getAsDouble() * DECIMAL_PLACES_KOEFFICIENT) / DECIMAL_PLACES_KOEFFICIENT);
+		product.setReviewCount(product.getReviewCount() - 1);
 		productDao.update(product);
 	}
 }
